@@ -5,6 +5,7 @@
 - [ ] [The Zen of Github](https://primer.style/guides/introduction)
 - [ ] [Accessibility at GitHub](https://primer.style/guides/accessibility/accessibility-at-github)
 - [ ] [Primer: How to use colors](https://primer.style/foundations/color#how-to-use-colors-in-primer-libraries)
+- [ ] [Theme Sepecification](https://github.com/system-ui/theme-specification)
 
 ## UX Design
 

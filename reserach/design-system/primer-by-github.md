@@ -119,3 +119,56 @@ Just like tailwind, utility based css
 
 - Typography design tokens use `rem` units for accessibility (browser zoom)
 - Line height values are unitless and aligned to 4px grid.
+
+## Dependencies
+
+### Peer Dependencies
+
+- react
+- react-dom
+- styled-components@5
+
+### Server Side Rendering
+
+- Uses `styled-components` SSR implementation to handle server-side and client-side rendering.
+
+### Typescript
+
+- Uses typescript type
+- There is no seperate `@types/primer/react`. Types can be imported from same package i.e.`@primer/react`
+
+### styled-system vs `sx prop`
+
+## Color modes and color schemes
+
+The `color mode` of an application is the theme (day, night etc) where `color scheme` refers to collection of colors that are associated with a paricular `color mode`.
+
+For ex, the `light` scheme is displayed when the application is in `day` mode and the `dark` scheme is displayed in `night` mode.
+
+`colorMode` can be used to set theme of the application in `ThemeProvider`
+
+Ref: https://primer.style/react/theming#color-modes-and-color-schemes
+
+## Theme Reference
+
+Looks like they are following same pattern in theme object as instazen-ui or react-ui except for colors. From the first glance, it looks like colors are categorized based on their use in components.
+
+For ex, avatar, overlay, outline, btn, input etc
+
+There are repeated colors.
+
+## Types of components
+
+### Building Block Components
+
+Building block components are basically atom components, basic in their functions and can be used together with other components.
+
+Ex, `Button`, `Input`, `Link`, `Avatar`
+
+### Pattern Components
+
+Patterns components are basically molecules, which are basically built using multiple building block components.
+
+### Helper Components
+
+Helper components can be understood as layout components or HOCs.
