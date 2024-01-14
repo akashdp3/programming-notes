@@ -4,18 +4,11 @@
   "description": "- [Known Common Issues](/known-common-issues.md)",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "node ./scripts/createREADME.js",
-      "git add"
-    ]
+    "create-readme": "node ./scripts/createREADME.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0"
+    "husky": "^8.0.3"
   }
 }
