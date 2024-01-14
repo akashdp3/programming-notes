@@ -2,10 +2,6 @@
 
 - [Known Common Issues](/known-common-issues.md)
 
-## .Husky
-
-### _
-
 ## Blogs
 
 ## Notes
@@ -15,8 +11,8 @@
 ## Projects
 - [Portfolio](projects/portfolio.md)
 
-## Reserach
+## Research
 
 ### Design System
-- [Primer By Github](reserach/design-system/primer-by-github.md)
-- [Web Component Architecture](reserach/design-system/web-component-architecture.md)
+- [Primer By Github](research/design-system/primer-by-github.md)
+- [Web Component Architecture](research/design-system/web-component-architecture.md)
