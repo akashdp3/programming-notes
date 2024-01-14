@@ -5,8 +5,10 @@
 ## Blogs
 
 ## Notes
-- [Typescript Fundamentals](notes/Typescript Fundamentals.md)
 - [Design System](notes/design-system.md)
+
+### Typescript
+- [Typescript Fundamentals](notes/typescript/typescript-fundamentals.md)
 
 ## Projects
 - [Portfolio](projects/portfolio.md)
