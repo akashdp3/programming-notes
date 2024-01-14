@@ -1,16 +1,21 @@
-# Notes 
+# Notes
 
+- [Known Common Issues](/known-common-issues.md)
 
-## 
-  - [known-common-issues.md]()
+## Blogs
 
-## notes
-  - [Typescript Fundamentals.md](notes)
-  - [design-system.md](notes)
+## Notes
 
-## projects
-  - [portfolio.md](projects)
+- [Typescript Fundamentals](notes/Typescript Fundamentals.md)
+- [Design System](notes/design-system.md)
 
-## reserach/design-system
-  - [primer-by-github.md](reserach/design-system)
-  - [web-component-architecture.md](reserach/design-system)
+## Projects
+
+- [Portfolio](projects/portfolio.md)
+
+## Reserach
+
+### Design System
+
+- [Primer By Github](reserach/design-system/primer-by-github.md)
+- [Web Component Architecture](reserach/design-system/web-component-architecture.md)
