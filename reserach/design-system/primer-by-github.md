@@ -139,6 +139,8 @@ Just like tailwind, utility based css
 
 ### styled-system vs `sx prop`
 
+<!-- TODO: To be filled out -->
+
 ## Color modes and color schemes
 
 The `color mode` of an application is the theme (day, night etc) where `color scheme` refers to collection of colors that are associated with a paricular `color mode`.

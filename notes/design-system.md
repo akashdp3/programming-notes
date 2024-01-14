@@ -12,7 +12,7 @@ Not all components are built the same way. A component might be created using st
 - **Layouts** are how features come together to form a page.
 
 ```
-The design system would generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application.
+The design systemwould generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application.
 ```
 
 ```note
