@@ -7,7 +7,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": ["chmod +x ./scripts/createREADHME.js && node ./scripts/createREADHME.js", "git add"]
+    "*.js": [
+      "node ./scripts/createREADME.js",
+      "git add"
+    ]
   },
   "author": "",
   "license": "ISC",

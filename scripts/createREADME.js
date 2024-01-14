@@ -85,7 +85,7 @@ const hierarchy = [];
 
 // List of files to be ignored
 const ignoredFiles = ["README.md", "back-burner.md"]; // Add the files you want to ignore
-const ignoredFolders = [".git", "scripts"];
+const ignoredFolders = [".git", "scripts", "node_modules"];
 
 // Build the hierarchy starting from the repository root
 buildHierarchy("", repoRoot, repoRoot, hierarchy, ignoredFiles, ignoredFolders);
