@@ -6,6 +6,10 @@
 It is a `open-source` project that is maintained by Microsoft. It is syntactic superset of `Javascript`.
 ```
 
+### What is type checking?
+
+`Is type y equivalent to type x ?` -> `Does the type of y fit within the type of x ?`
+
 ### Why types are a big deal
 
 It allows developers to leave more of their intent on itself.
@@ -25,7 +29,7 @@ add(3, "4");
 - Javascript does not give warning about possible errors. Even worse, It fails with unexpected result which programmer might not be aware of. **In putting in simple words, programmers get to know about the fail right at the moment when problematic thing happen**.
 - Typescript introduces constraint which helps by throwing warning and errors in compile time
 
-### tsconfig.json
+## tsconfig.json
 
 ```json
 {
@@ -40,7 +44,7 @@ add(3, "4");
 }
 ```
 
-##### Important points
+### Important points
 
 - with config `declaration` defined to true, the tsc or typescript compiler creates a type file (`<fileName>.d.ts`) along with a `js` file
 
@@ -83,7 +87,7 @@ humidity = 78; // ERROR: Type '78' is not assignable to type '79'
 humidity = 79; // VALID: humidity's type is 79 and number `79` has type `79`.
 ```
 
-### Implicit `any` and type annotations
+## Implicit `any` and type annotations
 
 - If a variable is declared, but not initialized, `typescript` implicitly treats it a `any` type.
 - `any` can be thought of as a type that can accept any type that is possible to create in typescript.
@@ -100,7 +104,7 @@ setTimeout(() => {
 
 Basically we haven't declared type for `endTime`, also we haven't initialized it. Anthing typescript can't figure out, it by default assigns `any` type to that variable.
 
-### Type Casting
+## Type Casting
 
 - Type casting is basically defining type of value explicitely
 - Sometimes `typescript` objects to some cases of casting. For ex, `null as 79` is invalid. As long as values are reasonably compatible, `typescript` will allow to perform the casting.
@@ -112,7 +116,7 @@ const date = "oops" as Date; // ERROR: value and type are incompatible
 const date = "oops" as any as Date; // VALID: type "oops" -> any -> Date. Can useful in tests, but should not be used in code
 ```
 
-### Functions & Return Types
+## Functions & Return Types
 
 ```javascript
 function add(a, b) {
@@ -132,7 +136,7 @@ function add(a: number, b: number): number {
 add(3, 4);
 ```
 
-### Objects & Property Types
+## Objects & Property Types
 
 Below is a normal object we are defining.
 
@@ -179,7 +183,7 @@ function printCar(car: {
 }
 ```
 
-### Index Signature
+## Index Signature
 
 In the above example, we are defining types for values for javascript object. There is also a way to type the keys too. Possible types can be string and numbers. It can be defined as below:
 
@@ -209,6 +213,74 @@ type members: {
 }
 ```
 
-### readonly
+## readonly
 
 It tells typescript to treat the variable as immutable. It is helpful when you dont want change the value of arrays.
+
+## Static vs dynamic
+
+Sorting type systems as either static or dynamic has to do with whether type-checking is performed at compile time or not. `Typescript's type system is static.`
+
+Dynamic type systems perform their "type equivalence" evaluation purely at runtime. Javascript, python, ruby, perl and PHP fall into this category. It is also called duck typing.
+
+## Union and Intersection Types
+
+It more depends on the type of values a particular type can accept.
+
+### Union Types (|)
+
+```typescript
+type oneThroughFive = { 1, 2, 3, 4, 5 }
+type evens = { 2, 4, 6, 8 }
+
+oneThroughFive | evens -> { 1, 2, 3, 4, 5, 6, 8 }
+```
+
+{ 1, 2, 3, 4, 5, 6, 8 } are values `oneThroughFive | events` can accept.
+
+```typescript
+const humidity = 79;
+
+type OneThroughFive = 1 | 2 | 3 | 4 | 5;
+let lowNumber: OneThroughFive = 3; // VALID
+lowNumber = 8; // ERROR
+
+type Evens = 2 | 4 | 6 | 8;
+let evenNumber: Evens = 2; // VALID
+evenNumber = 5; // ERROR
+
+let evenOrLowNumbers = 5 as Evens | OneThroughFive;
+```
+
+Let's try some examples:
+
+```typescript
+function flipCoin(): "heads" | "tails" {
+  if (Math.random() > 0.5) return "heads";
+  return "tails";
+}
+```
+
+```typescript
+const success = ["success", { name: "Akashdeep Samantra", email: "akash.samantra@gmail.com }] as const;
+cosnt error = ["error", new Error("Something went wrong")] as const;
+
+function getUserInfo() {
+  if (flipCoin() === "heads") {
+    return success;
+  } else {
+    return fail;
+  }
+}
+
+const outcome = getUserInfo();
+```
+
+### Intersection Types (&)
+
+```typescript
+type oneThroughFive = { 1, 2, 3, 4, 5 }
+type evens = { 2, 4, 6, 8 }
+
+oneThroughFive & events -> { 2, 4 }
+```
