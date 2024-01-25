@@ -4,11 +4,12 @@
   "description": "- [Known Common Issues](/known-common-issues.md)",
   "main": "index.js",
   "scripts": {
-    "create-readme": "node ./scripts/createREADME.js"
+    "create-readme": "node ./scripts/createREADME.js",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "husky": "^8.0.3"
+    "husky": "^8.0.0"
   }
 }

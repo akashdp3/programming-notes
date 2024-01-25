@@ -274,6 +274,33 @@ function getUserInfo() {
 }
 
 const outcome = getUserInfo();
+
+const [first, second] = outcome;
+/**
+ * type of first: "success" | "error"
+ * type of second: { readonly name: "Akashdeep Samantra", readonly email: "akash.samantra@gmail.com" } | Error
+* /
+
+```
+
+### Discriminated Unions
+
+```typescript
+const outcome = getUserInfo();
+
+if (first === "error") {
+  /**
+   * type of second: Error - Since typescript understands when first is "error", second will only be Error and nothing else
+   */
+} else {
+  /**
+   * type of second: { readonly name: "Akashdeep Samantra", readonly email: "akash.samantra@gmail.com" } - same reason as above
+   */
+}
+```
+
+```
+TypeScript understands that the first and second positions of our tuple are linked. What we are seeing here is sometimes referred to as a discriminated or “tagged” union type.
 ```
 
 ### Intersection Types (&)
@@ -283,4 +310,223 @@ type oneThroughFive = { 1, 2, 3, 4, 5 }
 type evens = { 2, 4, 6, 8 }
 
 oneThroughFive & events -> { 2, 4 }
+```
+
+```
+Essentially, & means “anything that is in both sets” in terms of the allowed values, and because of this, we can use “any of the behavior definitely present on members of either set”.
+```
+
+## Interfaces and Type Aliases
+
+These are two mechanisms that `typescript` allows us to give names to our type and pass it as `javascript` values.
+
+- It reduces noise in code. It allows us to create a cental place where we can define types and use it across the application.
+- These types gets removed on compile-time.
+
+### Types
+
+```typescript
+type Amount = {
+  currency: string;
+  value: number;
+};
+
+function printAmount(amt: Amount) {
+  console.log(amt);
+}
+```
+
+```typescript
+type specialDate = Date & { getDescription(): string }; // Merges Date object and { getDescription(): string }
+
+const newYearsEve: SpecialDate = Object.assigne(new Date(), {
+  getDescription: () => "Last day of the year",
+});
+newYearsEve.getDescription(); // VALID
+```
+
+### Interfaces
+
+- Interfaces are being used for inheritance
+
+Let's refer to a javascript classes
+
+```javascript
+class AnimalsThatEat {
+  eat() {}
+}
+
+class Cat extends AnimalsThatEat {
+  meow() {}
+}
+```
+
+Let's try to use same login in typescript inheritance
+
+```typescript
+interface Animal {
+  isAlive(): boolean;
+}
+
+interface Mammal extends Animal {
+  getFurOrHairColor(): string;
+}
+
+interface Hamster extends Mammal {
+  squeak(): string;
+}
+
+function careForHamster(h: Hamster) {
+  /**
+   * h gets all methods from all three interfaces
+   */
+}
+```
+
+```typescript
+interface AnimalLike {
+  eat(food: string): void;
+}
+
+class Dog implements AnimalLike {
+  eat(food: string): void {
+    console.log("Dog eating food");
+  }
+
+  bark() {
+    return "woof";
+  }
+}
+```
+
+`implement`
+
+- It is a contact that a class has to adhere to.
+- It defines what instance of a class look like.
+- A class can `extend` one class and `implement` multiple interfaces.
+
+`implement` and `extends` can be used together.
+
+```typescript
+class Animal {}
+
+interface AnimalLike {
+  eat(food: string): void;
+}
+
+interface CanBark {
+  bark(): string;
+}
+
+class Dog extend Animal implements AnimalLike, CanBark {
+  bark() {
+    return "woof"
+  }
+
+  eat(food: string) {
+    console.log("Dog eating food")
+  }
+}
+```
+
+```
+In scenarios where inherited class implements multiple interfaces, the instance of class has to satisfy all interfaces.
+```
+
+A class can only implement an object type or intersection of object types with statically known members.
+
+```typescript
+type CanJump = {
+  jumpToHeight(): string;
+};
+
+type CanBark2 = number | { bark(): string };
+
+class Dog implements CanJump, CanBark2 {
+  jumpToHeight() {
+    return "1.8 meter";
+  }
+} // ERROR: since CanBark2 is enforcing a number type
+```
+
+```
+Basically, DO NOT USE types for what you use interface for.
+```
+
+### Open Interfaces
+
+Interfaces can be redeclared, the result is that all declared types are combined and the combined type is treated for type checking. It is special feature for `interface`. Same is not valid for `type` declaration
+
+For interfaces:
+
+```typescript
+interface AnimalLike {
+  isAlive(): string;
+}
+
+// VALID
+interface AnimalLike {
+  canJump(): boolean;
+}
+```
+
+For types:
+
+```typescript
+type AnimalLike = {
+  isAlive(): string;
+};
+
+// ERROR
+type AnimalLike = {
+  canJump(): boolean;
+};
+```
+
+### Recursive types
+
+```typescript
+type NestedNumbers = number | NestedNumbers[];
+
+const val: NestedNumbers = [3, 4, [5, 6, [7], 59], 221]; // VALID
+```
+
+## Type Queries
+
+### keyOf
+
+Ex.
+
+```typescript
+const contact = {
+  name: "Ashley",
+  email: "ashley@example.com",
+};
+
+type WhatIwant = "name" | "email";
+type howIcanget = keyof typeof contact;
+// keyof = Object.keys() for types
+// typeof = "get me type of this value"
+```
+
+Ex.
+
+```typescript
+type DatePropertyNames = keyof Date;
+
+type DateStringPropertyNames = DatePropertyNames & string;
+type DateSymbolPropertyNames = DatePropertyNames & symbol;
+```
+
+### typeof
+
+```typescript
+async function main() {
+  const apiResponse = await Promise.all([
+    fetch("https://example.com"),
+    Promise.resovle("Titanium White"),
+  ]);
+
+  type ApiResponseType = typeof apiResponse;
+}
 ```

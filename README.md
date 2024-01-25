@@ -2,10 +2,11 @@
 
 - [Known Common Issues](/known-common-issues.md)
 
-## Blogs
-
 ## Notes
 - [Design System](notes/design-system.md)
+
+### Javascript
+- [Asynchronous Javascript](notes/javascript/asynchronous-javascript.md)
 
 ### Typescript
 - [Typescript Fundamentals](notes/typescript/typescript-fundamentals.md)
