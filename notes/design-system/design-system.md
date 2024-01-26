@@ -1,4 +1,4 @@
-# Design System
+# Design System Architecture
 
 Ref: https://varun.ca/styled-system-revisited/
 
@@ -12,7 +12,7 @@ Not all components are built the same way. A component might be created using st
 - **Layouts** are how features come together to form a page.
 
 ```
-The design systemwould generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application.
+The design system would generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application.
 ```
 
 ```note
@@ -30,3 +30,7 @@ Ref forwarding is an opt-in feature that lets some components take a ref they re
 ## Polymorphic Components
 
 keeping the styling same they allow you to render a different HTML tag or a different custom component.
+
+## styled-system
+
+The foundation of `styled-system` API is the [Design Graph](/notes/design-system/design-graph.md) - constaint based system of organizing styles in UI design. There are four parts in it.

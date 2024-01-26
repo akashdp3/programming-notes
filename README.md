@@ -3,7 +3,15 @@
 - [Known Common Issues](/known-common-issues.md)
 
 ## Notes
-- [Design System](notes/design-system.md)
+
+### Design System
+- [Design Graph](notes/design-system/design-graph.md)
+- [Design System](notes/design-system/design-system.md)
+- [Styled System](notes/design-system/styled-system.md)
+- [Web Component Architecture](notes/design-system/web-component-architecture.md)
+
+#### Case Studies
+- [Primer By Github](notes/design-system/case-studies/primer-by-github.md)
 
 ### Javascript
 - [Asynchronous Javascript](notes/javascript/asynchronous-javascript.md)
@@ -17,5 +25,3 @@
 ## Research
 
 ### Design System
-- [Primer By Github](research/design-system/primer-by-github.md)
-- [Web Component Architecture](research/design-system/web-component-architecture.md)
