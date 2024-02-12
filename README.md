@@ -16,6 +16,10 @@
 #### Case Studies
 - [Primer By Github](notes/design-system/case-studies/primer-by-github.md)
 
+### Interview
+- [Javascript](notes/interview/javascript.md)
+- [Todo](notes/interview/todo.md)
+
 ### Javascript
 - [Asynchronous Javascript](notes/javascript/asynchronous-javascript.md)
 
