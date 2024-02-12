@@ -4,6 +4,9 @@
 
 ## Notes
 
+### Css
+- [Rendering Logic](notes/css/rendering-logic.md)
+
 ### Design System
 - [Design Graph](notes/design-system/design-graph.md)
 - [Design System](notes/design-system/design-system.md)
@@ -21,7 +24,3 @@
 
 ## Projects
 - [Portfolio](projects/portfolio.md)
-
-## Research
-
-### Design System

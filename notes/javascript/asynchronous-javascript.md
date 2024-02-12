@@ -15,7 +15,7 @@ function multipleBy2(inputNumber) {
 const name = "Will";
 ```
 
-As soon as we start running code, we start creating a `execution context`.
+As soon as we start running code, we start creating a javascript `execution context`.
 
 - **Thread of execution**: Parsing and executing the code line after line
 - **Live memory of variables with data**: Also known as Global Variable Enviornment
@@ -27,3 +27,5 @@ As soon as we start running code, we start creating a `execution context`.
 - This `memory` is specific to this said `function`. Also the `function` has access to `outer and global memory`.
 
 ## Javascript Asynchronicity
+
+

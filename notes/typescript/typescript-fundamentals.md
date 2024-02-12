@@ -35,7 +35,7 @@ add(3, "4");
 {
   "compilerOptions": {
     "outDir": "dist", // outDir(Output Directory) - where do you want to store the compiled(ts -> js) output
-    "declaration": true, // declaration - Creats type declaration file `.d.ts`
+    "declaration": true, // declaration - Creates type declaration file `.d.ts`
     "target": "ES2015", // target - Javascirpt version you want your ts code to compiled to. Ex. ES2015, ES2017, ES2020
     "module": "commonjs",
     "moduleResolution": "node"
@@ -529,4 +529,94 @@ async function main() {
 
   type ApiResponseType = typeof apiResponse;
 }
+```
+
+## Type Registry
+
+In `typescript`, there can be registry where we can declare all types. An example of it can be
+
+```typescript
+declare module global {}
+```
+
+This is global registry where we can declare all types. Similar to this, there can be `registries` where we can declare types for any particular module/context. For example,
+
+This is the folder structure of our example app
+
+```markdown
+- data/
+  - book.ts // A model for Book records
+  - magazine.ts // A model for Magazine records
+- lib/
+  - registry.ts // Our type registry and a `fetchRecord` function
+- index.ts // Out entry point
+```
+
+This is our registry file
+
+```typescript
+// @filename: lib/registry.ts
+export interface DataTypeRegistry {
+  // empty by design
+}
+
+export function fetchRecord(arg: keyof DataTypeRegistry & string, id: string) {}
+```
+
+and these are our module files
+
+```typescript
+// @filename: data/book.ts
+export class Book {
+  deweyDecimalNumber(): number {
+    return 42;
+  }
+}
+declare module "../lib/registry" {
+  export interface DataTypeRegistry {
+    book: Book;
+  }
+}
+
+// @filename: data/magazine.ts
+export class Magazine {
+  issueNumber(): number {
+    return 42;
+  }
+}
+declare module "../lib/registry" {
+  export interface DataTypeRegistry {
+    magazine: Magazine;
+  }
+}
+```
+
+By this design, from each module, we are re-declaring the `DataTypeRegistry` for each module. As a result, when function `fetchRecord` checks for type of `arg`, it checks for all types from all modules. In other words, declaring same registry and same interface in each modules, we are inserting module specific types to the main `DataTypeRegistry` interface as well as separating type concerns from each modules.
+
+By using this, we can inject our types into any third-party packages' module declaration.
+
+### Callables
+
+We can declare types for entire functions. This is also called as `call signature`.
+
+Let's take an example
+
+```typescript
+const add = (a: number, b: number): number => a + b;
+```
+
+This is the normal way of declaring types for function. It can be done in a different way
+
+```typescript
+interface TwoNumberCalculations {
+  (x: number, y: number): number;
+}
+
+const add: TwoNumberCalculations = (a, b) => a + b;
+```
+
+```typescript
+type TwoNumberCalculations = (a: number, b: number) => number; // arrow is not a typo. It is as expected.
+
+const add: TwoNumberCalculations = (a, b) => a + b;
 ```
