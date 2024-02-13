@@ -12,7 +12,28 @@ function printName() {
 }
 ```
 
-### Q2. 
+### Q2. What's currying?
+
+Ans. Currying is a function programming technique where a function with multiple arguments can be transformed into sequence of functions with one or more arguments.
+
+Ex.
+```javascript
+const someFunction = (a, b, c) => {
+   // some operations
+}
+
+someFunction(1,2,3);
+```
+
+With currying technique, the above function can be transformed into something like this:
+
+```javascript
+const someFunction = a => b => c => {
+  // some operations 
+}
+
+someFunction(1)(2)(3);
+```
 
 ## Functional Javascript
 
@@ -157,6 +178,34 @@ const vahicle = {
 
 const car = Object.create(vahicle);
 console.log(car.usage) // Transport people and/or goods
+```
+
+Using construction function
+
+```javascript
+function Bike(model, color) {
+   this.model = model;
+   this.color = color;
+}
+
+Bike.prototype.getDetails = function() {
+   return `${this.model} - ${this.color}`;
+}
+```
+
+Same class can be written in `class` syntax.
+
+```javascript
+class Bike {
+   constructor(model, color) {
+      this.model = model;
+      this.color = color;
+   }
+
+   getDetails() {
+      return `${this.model} - ${this.color}`;
+   }
+}
 ```
 
 ## Javascript Asynchronicity
