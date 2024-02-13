@@ -43,6 +43,7 @@
 - [ ] Context vs Redux
 - [ ] Redux lifecycle
 - [ ] Controlled vs Uncontrolled
+- [ ] Prop Drilling
 
 ### Performance
 
