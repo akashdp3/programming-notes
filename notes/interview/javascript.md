@@ -1,8 +1,26 @@
-# javascript
+onst vahicle = {
+    speed: "",
+    usage: "Transport people and/or goods"
+}
+
+const car = Object.create(vahicle);
+console.log(car.usage) // Transport people and/or goods javascript
 
 ## Basic Javascript
 
-### Q1.
+### Q1. What is hoisting?
+
+Ans. Hoisting is a javascript technique in which all variable and function declarations are moved to top of the scope.
+
+```javascript
+function printName() {
+   name = "John Doe";
+   console.log(name);
+   var name;
+}
+```
+
+### Q2. 
 
 ## Functional Javascript
 
@@ -131,6 +149,22 @@ Array.prototype.customReduce = function (callback, initialValue) {
 
 console.log(array.customReduce((acc, cur) => acc + cur, 10));
 console.log(array.reduce((acc, cur) => acc + cur, 10));
+```
+
+### Q7. What is inheritance?
+
+Ans. In javascript, there is no concept of class inheritance. The class introduced in ES6 is basically prototype inheritance under the hood. Prototype inheritance is way through which one object can access property of another object. 
+
+There are two properties in object i.e. `_proto_` and `prototype`. `_proto_` can store reference of another object and in-turn access properties of the said object. This prototype chain will continue until a object which has null in `_proto_`.
+
+```javascript
+const vahicle = {
+    speed: "",
+    usage: "Transport people and/or goods"
+}
+
+const car = Object.create(vahicle);
+console.log(car.usage) // Transport people and/or goods
 ```
 
 ## Javascript Asynchronicity
