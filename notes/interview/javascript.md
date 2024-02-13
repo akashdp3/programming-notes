@@ -1,11 +1,3 @@
-onst vahicle = {
-    speed: "",
-    usage: "Transport people and/or goods"
-}
-
-const car = Object.create(vahicle);
-console.log(car.usage) // Transport people and/or goods javascript
-
 ## Basic Javascript
 
 ### Q1. What is hoisting?
