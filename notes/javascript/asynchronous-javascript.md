@@ -51,3 +51,23 @@ For these `asynchronous` operations, `javascript` makes use of functionalities i
 
 - Event loop is the process which constants keeps track if some function is waiting in the callback queue, if callstack is empty. If the process finds the callstack to be empty and there are some functions that are waiting to be executed, it take the front function and pushes it to the callstack for execution.
 - It's javascript engine feature, not a browser feature.
+
+## Promises
+
+### How Promises work
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Hello World");
+  }, 1000);
+});
+
+promise.then((res) => console.log(res));
+```
+
+- When any promise is defined, it does two things:
+  - First, it spins off the aynsc operation (that is passed to it)
+  - Second, it returns a `Promise` placeholder (which in-turn gets assigned to `promise` constant)
+- The returned promise object looks something like this: `{ value: undefined, onFulfilled: [], onRejected: [] }`.
+- Javascript goes on executing the `synchronous` code.:

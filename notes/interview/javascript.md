@@ -6,33 +6,60 @@ Ans. Hoisting is a javascript technique in which all variable and function decla
 
 ```javascript
 function printName() {
-   name = "John Doe";
-   console.log(name);
-   var name;
+  console.log(name); // Output: Undefined.
+  var name = "John Doe";
+}
+
+printName();
+```
+
+It works great with `var`. But new declaration syntax like `let` and `const`, it will through a `Reference Error`. Let's use the same example, but with `let`;
+
+```javascript
+function printName() {
+  console.log(name): // Output: REFERENCE ERROR
+  let name = "John Doe";
 }
 ```
+
+Just like the previous example, `name` is hoisted to the top of the function block, but unlike `var`, it is not initialized to `undefined`. So while accessing it before declaration causes `REFERENCE ERROR`. It is also called `Temperal Dead Zone`.
 
 ### Q2. What's currying?
 
 Ans. Currying is a function programming technique where a function with multiple arguments can be transformed into sequence of functions with one or more arguments.
 
 Ex.
-```javascript
-const someFunction = (a, b, c) => {
-   // some operations
-}
 
-someFunction(1,2,3);
+```javascript
+const sumThreeNumbers = (a, b, c) => {
+  return a + b + c;
+};
+
+sumThreeNumbers(1, 2, 3);
 ```
 
 With currying technique, the above function can be transformed into something like this:
 
 ```javascript
-const someFunction = a => b => c => {
-  // some operations 
+const someFunction = (a) => (b) => (c) => {
+  return a + b + c;
+};
+
+sumThreeNumbers(1)(2)(3);
+```
+
+Same feature can be represented in traditional function
+
+```javascript
+function sumThreeNumbers(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
 }
 
-someFunction(1)(2)(3);
+sumThreeNumbers(1)(2)(3);
 ```
 
 ## Functional Javascript
@@ -60,7 +87,7 @@ In other programming languages, all properties defined in a function exist just 
 
 For the above example, if `func` is console logged, you can see something like this
 
-```JSON
+```json
 {
   constructor: {
     arguments: null,
@@ -101,7 +128,7 @@ function outerFunction() {
 const myFuncs = outerFunction();
 
 myFuncs.innerFunction1(); // Counter : 1
-myFuncs.innerFunction2(): // counter : 2
+myFuncs.innerFunction2(): // Counter : 2
 ```
 
 From the above example, it shows that even though there are multiple inner functions, javascript creates one closure of `outerFunction` instead of creating copy for each function.
@@ -161,50 +188,49 @@ Array.prototype.customReduce = function (callback, initialValue) {
 };
 
 console.log(array.customReduce((acc, cur) => acc + cur, 10));
-console.log(array.reduce((acc, cur) => acc + cur, 10));
 ```
 
 ### Q7. What is inheritance?
 
-Ans. In javascript, there is no concept of class inheritance. The class introduced in ES6 is basically prototype inheritance under the hood. Prototype inheritance is way through which one object can access property of another object. 
+Ans. In javascript, there is no concept of class inheritance. The class introduced in ES6 is basically prototype inheritance under the hood. Prototype inheritance is way through which one object can access property of another object.
 
 There are two properties in object i.e. `_proto_` and `prototype`. `_proto_` can store reference of another object and in-turn access properties of the said object. This prototype chain will continue until a object which has null in `_proto_`.
 
 ```javascript
 const vahicle = {
-    speed: "",
-    usage: "Transport people and/or goods"
-}
+  speed: "",
+  usage: "Transport people and/or goods",
+};
 
 const car = Object.create(vahicle);
-console.log(car.usage) // Transport people and/or goods
+console.log(car.usage); // Transport people and/or goods
 ```
 
 Using construction function
 
 ```javascript
 function Bike(model, color) {
-   this.model = model;
-   this.color = color;
+  this.model = model;
+  this.color = color;
 }
 
-Bike.prototype.getDetails = function() {
-   return `${this.model} - ${this.color}`;
-}
+Bike.prototype.getDetails = function () {
+  return `${this.model} - ${this.color}`;
+};
 ```
 
 Same class can be written in `class` syntax.
 
 ```javascript
 class Bike {
-   constructor(model, color) {
-      this.model = model;
-      this.color = color;
-   }
+  constructor(model, color) {
+    this.model = model;
+    this.color = color;
+  }
 
-   getDetails() {
-      return `${this.model} - ${this.color}`;
-   }
+  getDetails() {
+    return `${this.model} - ${this.color}`;
+  }
 }
 ```
 
@@ -225,4 +251,6 @@ For example, whenever we use `fetch` function to get some data from server, we a
 
 - `Event Loop`, as the name denotes, is a process which runs in loop and it checks whether there are any asynchronous function that is waiting to be executed and checks if javascript callstack is empty. If it finds some async function waiting and callstack is empty, it pushed the said callback/function to callstack for it to be executed.
 
-### Q2.:
+### Q2. Async/Await vs Promises
+
+Ans.

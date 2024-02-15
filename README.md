@@ -17,8 +17,11 @@
 - [Primer By Github](notes/design-system/case-studies/primer-by-github.md)
 
 ### Interview
+- [Amazon Design Technologist](notes/interview/amazon-design-technologist.md)
 - [Javascript](notes/interview/javascript.md)
+- [React](notes/interview/react.md)
 - [Todo](notes/interview/todo.md)
+- [Ux Design](notes/interview/ux-design.md)
 
 ### Javascript
 - [Asynchronous Javascript](notes/javascript/asynchronous-javascript.md)

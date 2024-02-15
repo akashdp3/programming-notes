@@ -15,9 +15,7 @@ Not all components are built the same way. A component might be created using st
 The design system would generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application.
 ```
 
-```note
 Note, this is a framework for guiding architectural choices. I do not recommend categorizing components in code. A component might start as an Element and evolve into a Pattern. Category based folder structure leads to unnecessary overhead and can hinder this natural evolution.
-```
 
 ## Forwarding Refs
 
