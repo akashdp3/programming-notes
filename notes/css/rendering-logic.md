@@ -4,7 +4,7 @@
 
 The goal of `CSS` is to allow control over appearance and layout of your app's content.
 
-- When we are starting with scratch with an `html` document, it comes with some built-in styles. These styles are browser specific. 
+- When we are starting with scratch with an `html` document, it comes with some built-in styles. These styles are browser specific.
 
 
 ## Basic terminology for CSS
@@ -86,8 +86,20 @@ As you can see, I have applied styles to `p` tag and there is `em` tag inside of
 
 But the entire sentence `This is a deeppink text` is colored even through we haven't applied any style to `em`. This is because `em` inherits color property from it's parent i.e. `p` tag.
 
-Not all property is inhertable. Mostly typography related properties can be inherited. This is by design to improve developer experience (DX).
+By default, Not all property is inhertable. Mostly typography related properties can be inherited. This is by design to improve developer experience (DX).
 
 [List of CSS Properties that are inherited](https://www.sitepoint.com/css-inheritance-introduction/#list-css-properties-inherit)
 
+`inherit` property can be used to force one element to inherit style from parent.
 
+```html
+<style>
+    p {
+        border: 1px solid deeppink;
+    }
+</style>
+
+<p>
+
+</p>
+```
