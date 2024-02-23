@@ -186,7 +186,7 @@ export const Text = styled.p(space, color);
 
 The above component can be rendered as follows:
 
-```jsx
+```typescript
 <Text color="text.primary">Hello World</Text>
 ```
 
@@ -196,7 +196,7 @@ In components, there are scenarios where a component can have multiple variants.
 
 Let's add `title` and `body` variants to above button component
 
-```jsx
+```typescript
 const textVariants = variant({
   variants: {
     title: {
@@ -218,7 +218,8 @@ export const Text = styled.p(
 
 This component can be used as:
 
-```jsx
+```typescript
 <Text variant="title">This is the title</Text>
 <Text variant="body">This is the title</Text>
 ```
+

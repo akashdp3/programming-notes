@@ -20,3 +20,7 @@
 ## Typescript
 
 - [ ] What is cardinality?
+
+## CSS
+
+- [ ] CSS

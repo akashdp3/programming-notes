@@ -1,33 +1,35 @@
 # Notes 
 
-- [Known Common Issues](/known-common-issues.md)
 
-## Notes
+## Src
+- [Known Common Issues](src/known-common-issues.md)
 
-### Css
-- [Rendering Logic](notes/css/rendering-logic.md)
+### Notes
 
-### Design System
-- [Design Graph](notes/design-system/design-graph.md)
-- [Design System](notes/design-system/design-system.md)
-- [Styled System](notes/design-system/styled-system.md)
-- [Web Component Architecture](notes/design-system/web-component-architecture.md)
+#### Css
+- [Rendering Logic](src/notes/css/rendering-logic.md)
 
-#### Case Studies
-- [Primer By Github](notes/design-system/case-studies/primer-by-github.md)
+#### Design System
+- [Design Graph](src/notes/design-system/design-graph.md)
+- [Design System](src/notes/design-system/design-system.md)
+- [Styled System](src/notes/design-system/styled-system.md)
+- [Web Component Architecture](src/notes/design-system/web-component-architecture.md)
 
-### Interview
-- [Amazon Design Technologist](notes/interview/amazon-design-technologist.md)
-- [Javascript](notes/interview/javascript.md)
-- [React](notes/interview/react.md)
-- [Todo](notes/interview/todo.md)
-- [Ux Design](notes/interview/ux-design.md)
+##### Case Studies
+- [Primer By Github](src/notes/design-system/case-studies/primer-by-github.md)
 
-### Javascript
-- [Asynchronous Javascript](notes/javascript/asynchronous-javascript.md)
+#### Interview
+- [Amazon Design Technologist](src/notes/interview/amazon-design-technologist.md)
+- [Javascript](src/notes/interview/javascript.md)
+- [React](src/notes/interview/react.md)
+- [Todo](src/notes/interview/todo.md)
+- [Ux Design](src/notes/interview/ux-design.md)
 
-### Typescript
-- [Typescript Fundamentals](notes/typescript/typescript-fundamentals.md)
+#### Javascript
+- [Asynchronous Javascript](src/notes/javascript/asynchronous-javascript.md)
 
-## Projects
-- [Portfolio](projects/portfolio.md)
+#### Typescript
+- [Typescript Fundamentals](src/notes/typescript/typescript-fundamentals.md)
+
+### Projects
+- [Portfolio](src/projects/portfolio.md)
